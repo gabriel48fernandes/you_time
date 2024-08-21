@@ -35,9 +35,25 @@
 * ver o perfil do cliente e e fazer ajustes conforme necessário
 
          ### REGRA DE AGENDAMENTOS
+
 ### REGRA DE CANCELAMENTO.
-* DESCRIÇÃO. 
+
+* DESCRIÇÃO O cliente tem a opção de trocar o horario agendado ou até mesmo cancelar se preferir 
+
 * JUSTIFICATIVA essa regra serve para que em um eventual cancelamento um novo cliente possa substituir ou o proximo ser antecipado
-* CONDIÇÕES Só podera ser cancelado com até 2 horas de antecêdencia
-* AÇÕES
-### REGRA DE ATRASO
+
+* CONDIÇÕES Só poderá ser cancelado com até 2 horas de antecêdencia.
+* não pode já ter ocorrido outro cancelamento nos ultimos 30 dias. 
+
+* AÇÕES se todas as condições forem atendidas o cliente podera cancelar e remarcar um novo horarios sem nenhuma multa
+*  Se alguma condição não for atendida o cliente terá que pagar uma multa de 10% no proximo atendimento
+  
+### REGRA DE AGENDAMENTO.
+
+* DESCRIÇÃO o cliente podera agendar um horario de preferencia se ainda disponivel
+
+* JUSTIFICATIVA essa regra serve para evitar que o estabelecimento fique lotodo de clientes da espera
+
+* CONDICÕES 
+
+* AÇÕES 
