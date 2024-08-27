@@ -57,3 +57,34 @@
 * CONDICÕES 
 
 * AÇÕES 
+### CASOS DE USO
+# TITULO # gestão de horarios
+* ATOR PRINCIPAL: prestador de serviço/empresario
+* PRÉ CONDIÇÕES: o prestador de serviço deve saber dos seus compromisos da semana e não se "enrolar"
+* PÓS CONDIÇÕES: no sistema vai mostrar apenas os horarios disponiveis pra semana 
+* FLUXO PRINCIPAL: um local onde o prestador de serviso vai liberar os horarios disponiveis da semana e o cliente ira agendar.
+
+# TITULO # cadastro de usuario
+* ATOR PRINCIPAL: cliente
+* PRÉ CONDIÇÕES: o cliente deve fazer fazer o cadastro com um documento e e-mail valido
+* PÓS CONDIÇÕES: o cliente ira receber um e-mail com a confirmação 
+* FLUXO PRINCIPAL: o cliente entra no aplicatico ou link
+* faz login/cadastro
+* agenda um horario disponivel e confirma
+* após a confirmação o cliente ira receber um e-mail com a data e horario do agendamento.
+
+# TITULO # pagamento
+* ATOR PRINCIPAL: cliente
+* PRÉ CONDIÇÕES: o cliente podera efetuar o pagamento via pix,  cartão de credito ou até mesmo na hora do atendimento 
+* PÓS CONDIÇÕES: o pagamento via pix vai ser compensado no mesmo instante já o de cartão podera levar até 2 horas.
+* FLUXO PRINCIPAL: o cliente escolhe a forma de pagamento que preferir
+* efetua-o
+* o sistema mandarar um e-mail de confirmação com a data e horario com o valor pago.
+
+# TITULO # notificação 
+* ATOR PRINCIPAL: cliente
+* PRÉ CONDIÇÕES: o clinte já deve ter um usuario
+* PÓS CONDIÇÕES: o cliente ira receber no seu e-mail o horario agendado
+* FLUXO PRINCIPAL: o sistema manda um e-mail para o cliente com a comfirmação do agendamento
+* o sistema enviara lembretes no dia escolhido para o cliente não esquecer.
+  
