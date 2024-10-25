@@ -1,6 +1,0 @@
-const backend= require('./backend.js')
-
-
-//backend.inserirDados()
-backend.mostrarDados()
-backend.menuAdministrativo()
