@@ -25,17 +25,19 @@ switch(opçoes){
         backend.meusClientes()
         break
     case "4":
-        const serviço =prompt("digite o serviço ")
-        const valor =parseInt(prompt("digite o valor "))
-        backend.inserirDados(serviço,valor)
+        let cod =parseInt(prompt("digite um codigo para esse novo serviço "))
+        let serviço =prompt("digite o serviço ")
+        let valor =parseInt(prompt("digite o valor "))
+        backend.inserirDados(cod,serviço,valor)
+        console.log (serviço,"R$",valor, "cadastrado")
+        backend.mostrarDados()
         break
     case "5":
-        const codigo= parseInt(prompt("digite um novo codigo para esse cliente"))
-        const cliente= prompt("digite o nome do cliente novo")
-        const numero=parseInt(prompt("digite o numero de telefone do cliente"))
+        let codigo= parseInt(prompt("digite um novo codigo para esse cliente"))
+        let cliente= prompt("digite o nome do cliente novo")
+        let numero=parseInt(prompt("digite o numero de telefone do cliente"))
         backend.cadastrarCliente(codigo,cliente,numero)
-        console.log ()
-        console.log(cliente,"foi cadastrado-a")
+      
         break
     case "6":
         clientes= prompt("digite o nome ou o codigo que deseja encontrar ")
