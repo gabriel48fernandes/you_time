@@ -15,17 +15,28 @@ let clientes=
     {cod:3, cliente: "Murilo motta", numero: 994154159},
     {cod:4, cliente: "Miguel", numero: 997889271}
 ]
-function cadastrarCliente(pcodigo,pcliente,pnumero){
-    clientes.push({cod:pcodigo,cliente:pcliente, numero:pnumero})
+function cadastrarCliente(pcodigo, pcliente, pnumero) {
+    let teste2 = clienteCod(pcodigo);
+    
+    // Verifica se o código já existe
+    if (teste2 === -1) {
+        clientes.push({ cod: pcodigo, cliente: pcliente, numero: pnumero });
+        console.log(pcliente," cadastrado com sucesso!");
+    } else {
+        console.log("Erro: Código de cliente já existe.");
+    }
 }
+
 function meusClientes(){
     console.table(clientes)
 }
 function mostrarDados (){
     console.table(serviços)
 }
-function inserirDados(pcorte,pvalor){
-    serviços.push({corte:pcorte,valor:pvalor})
+function inserirDados(pcodigo,pcorte,pvalor){
+ 
+  let test2= clienteCod(pcodigo)
+    serviços.push({cod:pcodigo,corte:pcorte,valor:pvalor})
 }
 // Função para pesquisar cliente
 function pesquisarCliente(nome){
@@ -33,23 +44,24 @@ function pesquisarCliente(nome){
     for(let i = 0; i < clientes.length; i++){
   
       if(clientes[i].cliente == nome){
-        console.log("Cliente encontrado: " + clientes[i].cliente + " - " + clientes[i].numero)
-        return 
+        let retornoEncontrar="Cliente encontrado: " + clientes[i].cliente + " - " + clientes[i].numero
+        return retornoEncontrar  
       }
     }
-    console.log("Cliente não encontrado.");
+    
+    return "Cliente não encontrado."
   }
   function clienteCod(cod){
   
     for(let i = 0; i < clientes.length; i++){
   
       if(clientes[i].cod == parseInt(cod)){
-    console.log("Cliente encontrado: " + clientes[i].cod + " - " +clientes[i].cliente, clientes[i].numero)
+    //let retorno= "Cliente encontrado: " + clientes[i].cod + " - " +clientes[i].cliente+ clientes[i].numero
 
-        return
+        return i
       }
     }
-    console.log("Cliente não encontrado.");
+    return -1
   }
  module.exports= {mostrarDados,clienteCod,pesquisarCliente,inserirDados,cadastrarCliente,meusClientes}
  
