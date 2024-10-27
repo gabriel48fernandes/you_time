@@ -39,18 +39,25 @@ function inserirDados(pcodigo,pcorte,pvalor){
     serviços.push({cod:pcodigo,corte:pcorte,valor:pvalor})
 }
 // Função para pesquisar cliente
-function pesquisarCliente(nome){
-    
-    for(let i = 0; i < clientes.length; i++){
-  
-      if(clientes[i].cliente == nome){
-        let retornoEncontrar="Cliente encontrado: " + clientes[i].cliente + " - " + clientes[i].numero
-        return retornoEncontrar  
+function pesquisarCliente(valor) {
+  // Verifica se o valor é numérico convertendo para inteiro e comparando
+  if (parseInt(valor) == valor) { // Se valor for um número
+      valor = parseInt(valor);
+      for (let i = 0; i < clientes.length; i++) {
+          if (clientes[i].cod === valor) {
+              return "Cliente encontrado: " + clientes[i].cliente + " - " + clientes[i].numero;
+          }
       }
-    }
-    
-    return "Cliente não encontrado."
+  } else { // Caso seja um nome (string)
+      for (let i = 0; i < clientes.length; i++) {
+          if (clientes[i].cliente.toLowerCase() === valor.toLowerCase()) {
+              return "Cliente encontrado: " + clientes[i].cliente + " - " + clientes[i].numero;
+          }
+      }
   }
+  return "Cliente não encontrado.";
+}
+
   function clienteCod(cod){
   
     for(let i = 0; i < clientes.length; i++){
