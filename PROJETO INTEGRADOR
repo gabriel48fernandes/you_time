@@ -1,0 +1,88 @@
+                          APRESENTAÇÃO DO PROJETO
+
+Nome do sistema: 	YOU_TIME
+
+Sistema de Gestão On-line - YouTime
+
+O YouTime é um sistema desenvolvido para facilitar o gerenciamento de horários, 
+agendamentos e notificações entre clientes e prestadores de serviços. 
+Ele atende tanto à experiência do cliente quanto às necessidades administrativas.
+
+Requisitos Funcionais do Sistema
+1.  CADASTRO E LOGIN 
+O sistema deve permitir que o cliente:
+Crie uma conta informando CPF, e-mail, login e número de telefone.
+Realize login utilizando as credenciais cadastradas.
+2. Visualização de Horários Disponíveis
+O sistema deve:
+Exibir, em tempo real, os horários disponíveis para a semana atual.
+Atualizar a lista automaticamente à medida que horários forem ocupados.
+3. Agendamento de Horário
+O cliente deve ser capaz de:
+Visualizar os horários disponíveis em uma página específica.
+Selecionar um horário desejado.
+Confirmar o agendamento.
+Permitir que o cliente receba confirmações de agendamento por e-mail.
+
+
+
+4. Notificações de Agendamento
+O sistema deve:
+Enviar notificações para lembrar o cliente sobre seus agendamentos.
+5. Meus Agendamentos
+O cliente deve ser capaz de:
+Visualizar todos os seus horários agendados.
+Alterar ou cancelar um agendamento, respeitando as regras definidas.
+6. Painel de Administração
+O sistema deve fornecer um painel administrativo para que o prestador de serviço possa:
+Gerenciar horários disponíveis.
+Visualizar os agendamentos realizados.
+Acessar perfis dos clientes e fazer ajustes conforme necessário.
+
+Regras de Negócio
+1. Regras de Cancelamento
+O cliente pode cancelar ou alterar um horário agendado se:
+A solicitação ocorrer com no mínimo 2 horas de antecedência.
+Não tiver ocorrido outro cancelamento nos últimos 30 dias.
+Ações:
+Se as condições forem atendidas, o cancelamento/remarcação será gratuito.
+Caso alguma condição não seja atendida, será cobrada uma multa de 10% no próximo atendimento.
+
+
+                                     CASOS DE USO
+
+
+Os casos de uso são detalhados com atores, pré e pós-condições, e o fluxo principal de interação.
+Gestão de Horários
+Ator Principal: Prestador de serviço/empresário.
+Pré-Condições: O prestador deve organizar seus compromissos da semana.
+Pós-Condições: Exibição dos horários disponíveis.
+Fluxo Principal: O prestador libera horários, e o cliente faz agendamentos.
+Cadastro de Usuário
+Ator Principal: Cliente.
+Pré-Condições: Cadastro com documento e e-mail válidos.
+Pós-Condições: Confirmação via e-mail.
+Fluxo Principal:
+Cliente acessa o sistema.
+Realizar login/cadastro.
+Agenda um horário disponível.
+Recebe um e-mail com data e horário confirmados.
+Pagamento
+Ator Principal: Cliente.
+Pré-Condições: O cliente pode escolher entre Pix, cartão de crédito ou pagamento no local.
+Pós-Condições: Pagamento confirmado, com variações de tempo para compensação.
+Fluxo Principal:
+Cliente escolhe a forma de pagamento.
+Efetua o pagamento.
+Sistema envia e-mail com confirmação de pagamento e detalhes do agendamento.
+
+
+Notificação
+Ator Principal: Cliente.
+Pré-Condições: Cliente deve estar cadastrado.
+Pós-Condições: Recebimento de notificações via e-mail.
+Fluxo Principal:
+Sistema envia e-mail de confirmação após o agendamento.
+Sistema envia lembretes antes do horário marcado.
+
+
