@@ -12,7 +12,7 @@ export class ClienteService {
         return await this.repo.listarClientes();
     }
 
-    async buscarCliente(cod: number): Promise<Cliente | null> {
+    async buscarCliente(cod: number): Promise<Cliente > {
         return await this.repo.buscarCliente(cod);
     }
 
@@ -23,4 +23,9 @@ export class ClienteService {
     async excluirCliente(cod: number): Promise<void> {
         await this.repo.excluirCliente(cod);
     }
+
+async atualizarCliente (cliente:Cliente):Promise<void>{
+    await this.repo.atualizarPorID(cliente);
+}
+
 }

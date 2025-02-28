@@ -20,7 +20,6 @@ export class AgendamentosRepository {
         const result = await this.pool.query(query);
         return result.rows;
     }
-
     async verificarHorarioDisponivel(horarioId: number): Promise<boolean> {
     const query = `
         SELECT disponivel FROM you_time.horarios WHERE cod = $1;

@@ -9,7 +9,7 @@ export class Database {
                 user: 'postgres',
                 host: 'localhost',
                 database: 'you_time',
-                password: '224884',
+                password: '1234',
                 port: 5432,
             });
         }
