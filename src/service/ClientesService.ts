@@ -12,7 +12,7 @@ export class ClienteService {
         return await this.repo.listarClientes();
     }
 
-    async buscarCliente(cod: number): Promise<Cliente > {
+    async buscarCliente(cod: number): Promise<Cliente> {
         return await this.repo.buscarCliente(cod);
     }
 
@@ -24,8 +24,25 @@ export class ClienteService {
         await this.repo.excluirCliente(cod);
     }
 
-async atualizarCliente (cliente:Cliente):Promise<void>{
-    await this.repo.atualizarPorID(cliente);
-}
+    async atualizarCliente(cod: number, novoNome: string, novoNumero: string): Promise<void> {
+
+
+        let cliente = await this.buscarCliente(cod);
+
+        if (cliente) {
+            console.log(`Cliente encontrado: Nome: ${cliente.nome}, Número: ${cliente.numero}`);
+
+
+            // Atualiza os campos do objeto cliente somente se o usuário digitar algo
+            cliente.nome = novoNome || cliente.nome;
+            cliente.numero = novoNumero || cliente.numero;
+
+            // Atualiza o cliente chamando o método do service (reutilizando o fluxo existente)
+            await this.repo.atualizarPorID(cliente);
+            console.log("Cliente atualizado com sucesso!");
+        } else {
+            console.log("Cliente não encontrado.");
+        }
+    }
 
 }

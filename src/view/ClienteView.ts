@@ -31,7 +31,7 @@ export class ClienteView {
                     break;
 
                 case "2":
-                    
+
                     let pesquisaCliente = this.prompt("Digite o ID do cliente que deseja buscar: ");
                     console.log(await this.clienteservico.buscarCliente(parseInt(pesquisaCliente)));
                     this.prompt("Pressione Enter para voltar ao menu...");
@@ -52,31 +52,18 @@ export class ClienteView {
                     console.table(await this.clienteservico.listarClientes());
                     this.prompt("Pressione Enter para voltar ao menu...");
                     break;
-                case"5":
-                let cod = parseInt(await this.prompt("Digite o código do cliente que deseja atualizar: "));
+                case "5":
+                    let cod = parseInt(await this.prompt("Digite o código do cliente que deseja atualizar: "));
 
-                // Busca o cliente pelo ID (o método já busca e atualiza o cliente)
-                let cliente = await this.clienteservico.buscarCliente(cod);
-                
-                if (cliente) {
-                    console.log(`Cliente encontrado: Nome: ${cliente.nome}, Número: ${cliente.numero}`);
-                
                     // Solicitar novos valores ao usuário
                     let novoNome = await this.prompt("Digite o novo nome (deixe em branco para manter o atual): ");
                     let novoNumero = await this.prompt("Digite o novo número (deixe em branco para manter o atual): ");
-                
-                    // Atualiza os campos do objeto cliente somente se o usuário digitar algo
-                    cliente.nome = novoNome || cliente.nome;
-                    cliente.numero = novoNumero || cliente.numero;
-                
+
+
                     // Atualiza o cliente chamando o método do service (reutilizando o fluxo existente)
-                    await this.clienteservico.atualizarCliente(cliente);
-                
-                    console.log("Cliente atualizado com sucesso!");
-                } else {
-                    console.log("Cliente não encontrado.");
-                }
-                
+                    await this.clienteservico.atualizarCliente(cod, novoNome, novoNumero);
+
+
                 case "6":
                     console.log("Saindo do menu de clientes...");
                     continuar = false;

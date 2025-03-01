@@ -32,11 +32,10 @@ export class ClienteRepository implements interfaceRepository<Cliente>{
         await this.pool.query(query, [cod]);
     }
     async atualizarPorID(item: Cliente): Promise<void> {
-        console.log("teste de funcionamrnto", item)
+    
     
         const query = "UPDATE you_time.cliente SET nome = $1, numero = $2 WHERE cod = $3";
-        console.log(await this.pool.query(query, [item.nome, item.numero, item.cod]));
-        console.log(query)
-    }
+        await this.pool.query(query, [item.nome, item.numero, item.cod]);
+        
     
-}
+    }}
