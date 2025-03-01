@@ -54,7 +54,7 @@ export class ClienteView {
                     break;
                 case "5":
                     let cod = parseInt(await this.prompt("Digite o código do cliente que deseja atualizar: "));
-
+                    console.table(await this.clienteservico.buscarCliente(cod))
                     // Solicitar novos valores ao usuário
                     let novoNome = await this.prompt("Digite o novo nome (deixe em branco para manter o atual): ");
                     let novoNumero = await this.prompt("Digite o novo número (deixe em branco para manter o atual): ");

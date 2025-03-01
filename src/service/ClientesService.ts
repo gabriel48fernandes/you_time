@@ -30,7 +30,7 @@ export class ClienteService {
         let cliente = await this.buscarCliente(cod);
 
         if (cliente) {
-            console.log(`Cliente encontrado: Nome: ${cliente.nome}, Número: ${cliente.numero}`);
+            console.log(" Cliente encontrado: Nome: " + cliente.nome + "Número:" + cliente.numero);
 
 
             // Atualiza os campos do objeto cliente somente se o usuário digitar algo
