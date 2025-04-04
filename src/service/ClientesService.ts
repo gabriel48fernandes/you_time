@@ -12,10 +12,12 @@ export class ClienteService {
         return await this.repo.listarClientes();
     }
 
-    async buscarCliente(cod: number): Promise<Cliente> {
-        return await this.repo.buscarCliente(cod);
+    async buscarClientePorID(cod: number): Promise<Cliente> {
+        return await this.repo.buscarClientePorID(cod);
     }
-
+    async buscarClientePorNumero(numero: string): Promise<Cliente> {
+        return await this.repo.buscarClientePorNumero(numero);
+    }
     async adicionarCliente(nome: string, numero: string): Promise<void> {
         await this.repo.adicionarCliente(nome, numero);
     }
@@ -27,7 +29,7 @@ export class ClienteService {
     async atualizarCliente(cod: number, novoNome: string, novoNumero: string): Promise<void> {
 
 
-        let cliente = await this.buscarCliente(cod);
+        let cliente = await this.buscarClientePorID(cod);
 
         if (cliente) {
             

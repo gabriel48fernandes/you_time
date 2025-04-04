@@ -15,8 +15,13 @@ export class ClienteRepository implements interfaceRepository<Cliente>{
         const result = await this.pool.query(query);
         return result.rows.map(row => new Cliente(row.cod, row.nome, row.numero));
     }
+    async buscarClientePorNumero(numero:string): Promise<Cliente> {
+        const query = "SELECT * FROM you_time.cliente WHERE numero = $1";
+        const result = await this.pool.query(query, [numero]);
+        return new Cliente(result.rows[0].cod, result.rows[0].nome, result.rows[0].numero)
+    }
 
-    async buscarCliente(cod: number): Promise<Cliente> {
+    async buscarClientePorID(cod: number): Promise<Cliente> {
         const query = "SELECT * FROM you_time.cliente WHERE cod = $1";
         const result = await this.pool.query(query, [cod]);
         return new Cliente(result.rows[0].cod, result.rows[0].nome, result.rows[0].numero)

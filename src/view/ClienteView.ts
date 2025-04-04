@@ -32,8 +32,8 @@ export class ClienteView {
 
                 case "2":
 
-                    let pesquisaCliente = this.prompt("Digite o ID do cliente que deseja buscar: ");
-                    console.log(await this.clienteservico.buscarCliente(parseInt(pesquisaCliente)));
+                    let pesquisaCliente = this.prompt("Digite o numero do cliente que deseja buscar: ");
+                    console.log(await this.clienteservico.buscarClientePorNumero((pesquisaCliente)));
                     this.prompt("Pressione Enter para voltar ao menu...");
                     break;
 
@@ -47,14 +47,19 @@ export class ClienteView {
 
                 case "4":
                     let remover = parseInt(this.prompt("Digite o ID do cliente que deseja excluir: "));
-                    await this.clienteservico.excluirCliente(remover);
-                    console.log("Cliente removido com sucesso!");
-                    console.table(await this.clienteservico.listarClientes());
+
+                    try {
+                        await this.clienteservico.excluirCliente(remover);
+                        console.log("Cliente removido com sucesso!");
+                    } catch {
+                        console.log("Erro: Não é possível excluir este cliente, pois ele possui agendamentos ativos.");
+                    }
+
                     this.prompt("Pressione Enter para voltar ao menu...");
-                    break;
+                    break
                 case "5":
                     let cod = parseInt(await this.prompt("Digite o código do cliente que deseja atualizar: "));
-                    console.table(await this.clienteservico.buscarCliente(cod))
+                    console.table(await this.clienteservico.buscarClientePorID(cod))
                     // Solicitar novos valores ao usuário
                     let novoNome = await this.prompt("Digite o novo nome (deixe em branco para manter o atual): ");
                     let novoNumero = await this.prompt("Digite o novo número (deixe em branco para manter o atual): ");
@@ -62,7 +67,7 @@ export class ClienteView {
 
                     // Atualiza o cliente chamando o método do service (reutilizando o fluxo existente)
                     await this.clienteservico.atualizarCliente(cod, novoNome, novoNumero);
-
+                    break
 
                 case "6":
                     console.log("Saindo do menu de clientes...");
